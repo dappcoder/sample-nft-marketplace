@@ -26,7 +26,7 @@ contract NFTMarketplaceTest is Test {
         // Deploy MyNFT
         myNFT = new MyNFT(seller);
 
-        // Deploy SimpleNFTMarketplace
+        // Deploy NFTMarketplace
         marketplace = new NFTMarketplace(seller);
 
         // Mint an NFT to the seller
