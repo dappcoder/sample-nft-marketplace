@@ -1,66 +1,47 @@
-## Foundry
+## Simple NFT Matketplace
+Demo project for Cluj Ethereum Summer School.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+### Prerequisites
+We are using foundry as a development environment that uses Rust compiler and package manager.
 
-Foundry consists of:
+#### Install Rust
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+#### Install Foundry
+```
+curl -L https://foundry.paradigm.xyz | bash
+```
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
+#### Build
 
 ```shell
 $ forge build
 ```
 
-### Test
+#### Test
 
 ```shell
 $ forge test
 ```
 
-### Format
+#### Deploy
 
-```shell
-$ forge fmt
+For deployment we first need to setup the deployer account with native coin funds on it and to set the RPC url (the node address through which our script accesses the blockchain network).
+
+1. Create a .env file in the root of your project directory.
+
+2. Add your private key and RPC URL to the .env file:
+```
+PRIVATE_KEY=your_private_key
+RPC_URL=your_rpc_url
 ```
 
-### Gas Snapshots
+Replace your_private_key with the private key of the deployer account and your_rpc_url with the URL of your Ethereum node (e.g., Infura, Alchemy).
 
 ```shell
-$ forge snapshot
+forge script script/DeployNFTMarketplace.s.sol --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast
 ```
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+After running the script, you should see the deployed contract addresses logged in the console. You can verify the deployment on an Ethereum block explorer like Etherscan by searching for the contract addresses.
