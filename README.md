@@ -45,3 +45,12 @@ forge script script/DeployNFTMarketplace.s.sol --rpc-url $RPC_URL --private-key 
 ```
 
 After running the script, you should see the deployed contract addresses logged in the console. You can verify the deployment on an Ethereum block explorer like Etherscan by searching for the contract addresses.
+
+#### Addresses
+You can also interact with already deployed contracts
+
+```
+  MyToken deployed at: 0x49e5461e3A4fA2c25df2957e7F6b6530B07b6Cf5
+  MyNFT deployed at: 0x03c9Ec604e5f0CaF65612EB13C2881330De48272
+  NFTMarketplace deployed at: 0xD1E1F57E41A54c930664Ed799c753e330734Da66
+```
